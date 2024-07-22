@@ -3,12 +3,12 @@ let apellido = document.getElementById("apellido");
 let email = document.getElementById("email");
 let telefono = document.getElementById("telefono");
 let consulta = document.getElementById("consulta");
-let btnEviar = document.getElementById("enviar");
+let btnEnviar = document.getElementById("enviar");
 let infoContacto = [];
 
-btnEviar.addEventListener("click", (e) => {
+btnEnviar.addEventListener("click", (e) => {
     e.preventDefault(); //previene la acción del form de actualizar la página
-    
+
     infoContacto[0] = nombre.value;
     infoContacto[1] = apellido.value;
     infoContacto[2] = email.value;
