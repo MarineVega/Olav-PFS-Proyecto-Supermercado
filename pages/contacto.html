@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+
+    <!-- formulario de contacto -->
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido">
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono">            
+        <textarea name="consulta" id="consulta" cols="30" rows="10" placeholder="Comentarios"></textarea>
+        
+        <button id="enviar">Enviar</button>
+    </form>
+    
+    <footer>
+
+    </footer>
+    
+    <!-- cdn de la librería FileServer, permite guardar un arreglo en un archivo txt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../js/contacto.js"></script>
+</body>
+</html>
