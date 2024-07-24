@@ -4,23 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maná</title>
-    <link rel="stylesheet" href="./css/estilos.css">
-</head>
-<body>
-    <header>
-        <nav>
 
+    <!-- ícono de la página web -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="./favicon-16x16.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- configuración de estilos -->
+    <link rel="stylesheet" href="./css/estilos.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <a href="#" class="logo">
+                <img src="./assets/img/logo.png" alt="Logo SuperShop Maná" loading="lazy">
+                <!-- loading="lazy" -> atraza la carga de imágenes hasta que son necesarias --> 
+                 <span>SuperShop</span>
+            </a>
+
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="./pages/productos.html">Productos</a></li>
+                <li><a href="./pages/promociones.html">Promociones</a></li>
+                <!-- <li><a href="./pages/comprar.html">Comprar</a></li> -->
+                <li><a href="./pages/contacto.html">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        
+    <hr>
+
+    <main class="mainPrincipal">
+        <section class="seccionPrincipalArriba">
+            <img src="./assets/img/principalFondo.jpg" alt="">
+        </section>
+
+        <section class="seccionPrincipalCentro">
+            <div class="historia">
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa est eaque, commodi quibusdam totam voluptas aperiam sint, harum cum consequuntur velit quae nihil dolor, nostrum ut. Voluptatum nostrum ipsum sapiente!
+                    Ea mollitia, reprehenderit, numquam atque accusamus distinctio officia fuga, cum aliquam ullam nisi? Ipsam accusantium laboriosam distinctio. Accusamus, repellendus voluptatem! Repellat cupiditate inventore, expedita nemo dolore saepe aliquid blanditiis quisquam.
+                    Veniam non sed numquam mollitia natus, voluptatem ipsa quam deleniti, iusto, repudiandae sint ipsum cum similique aliquid reprehenderit soluta inventore quae velit? Blanditiis doloribus, quam voluptatibus nemo alias nostrum fuga?
+                    Quam ipsa dicta velit vel ea officiis, expedita, rerum repellendus vitae inventore iste mollitia error eius provident, magnam culpa exercitationem praesentium. Atque asperiores ab illo ad maxime voluptatum iure voluptas.
+                </p>
+            </div>
+            <div class="descripcion">
+                <img src="./assets/img/principalIzquierda.jpg" alt="Imagen Personas en góndola">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, quibusdam. Eligendi quam dolor quia aut odio qui dicta deleniti sapiente labore sint, aliquid maiores laborum vero assumenda necessitatibus quas. Excepturi?
+                    Animi, cupiditate veniam. Ipsam, cumque eveniet? Voluptate ea nihil repellat molestiae praesentium voluptates blanditiis labore consequatur nulla mollitia distinctio ipsa deleniti architecto non quisquam ducimus, quia accusantium, doloribus rem? Perferendis?
+                    
+                </p>
+            </div>
+            
+            <div class="descripcion">
+                <img src="./assets/img/principalDerecha.jpg" alt="Imagen Personal del Supermercado">
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod adipisci animi aliquam accusamus, ipsam esse minima id iusto, corporis nulla, mollitia qui veniam ipsum beatae quis ratione laborum nisi sunt!
+                    
+                </p>
+            </div>
+        </section>
+
+        <section class="seccionPrincipalAbajo">
+            <button class="btnComprar">Comprar</button>
+        </section>
+
     </main>
 
     <footer>
 
     </footer>
 
-    <script src="./js/productos.js"></script>
+    <!-- <script src="./js/productos.js"></script> -->
 </body>
 </html>

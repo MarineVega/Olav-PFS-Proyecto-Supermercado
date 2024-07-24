@@ -1,0 +1,88 @@
+/* configuro la fuente, nombre y ubicación */
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+/*  * -> selector universal // configuro la fuente para todo el sitio */
+* {
+    font-family: "Montserrat";
+}
+
+/* configuración de variables*/
+:root{
+    --color-principal: #FFBD59;     
+    --color-secundario: #FF3131;
+    --color-terciario: #F6F4F3;     
+    --color-cuarto:#413c35;
+}
+
+/*estilos del body*/
+body{
+    background-color: var(--color-principal);
+    color: var(--color-cuarto);
+}
+
+.header {    
+    nav {
+        height: 100%;
+        padding: 15px;
+        display: flex;
+        align-items:end;
+        justify-content: space-between;
+        color: var(--color-cuarto);
+
+        a{
+            text-decoration: none;
+            display: flex;
+            font-size: 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            img {
+                width: 200px;
+            }
+            span {
+                font-size: 1.7rem;                
+                padding-top: 10px;                
+            }            
+        }
+        
+        ul{
+            list-style: none;
+            display: flex;
+            column-gap: 70px;
+        }
+    }
+}
+
+.mainPrincipal {
+    display: flex;
+    flex-direction: column;
+
+    .seccionPrincipalArriba {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+    }
+    
+    .seccionPrincipalCentro{
+        display: flex;        
+        height: 400px;
+        width: 100%;
+
+        .descripcion {
+            display: flex;
+           
+            img{    /*que las imagenes ocupen el 100% de su padre y no más*/
+                width: 100%;
+                height: 100%;
+                object-fit: cover;  /*para que las imagenes no se deformen*/    
+            }
+        }
+    }
+}

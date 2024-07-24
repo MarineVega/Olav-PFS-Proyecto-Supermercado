@@ -1,0 +1,7 @@
+document.querySelectorAll('div').forEach((div)=>{ //Haces algo con cada uno de los divs de un documento});
+
+Fondo: #ffbd59
+Botón: #ff3131
+formulario: #f6f4f3
+Fuente: Montserrat
+
