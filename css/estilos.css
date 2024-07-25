@@ -155,3 +155,84 @@ footer {
     }
     
 }
+
+
+
+/*   ->Estilos de la pagina productos */
+.fila{
+    display: flex;
+    align-content: space-between;
+    gap: 15px;
+    margin: 30px;
+}    
+.titulo{
+   text-align: center;
+   font-size: 1.8rem;
+   text-shadow:#FF3131;
+
+}
+
+.items{
+    background-color:var(--color-terciario);
+    color:var(--color-cuarto);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    align-content: space-between;
+}
+.items img {
+    width: 200px; /* Ancho fijo para la imagen */
+    height: 150px; /* Alto fijo para la imagen */
+    object-fit: contain;
+    margin: 0 auto 10px; /* Centrar horizontalmente y agregar margen inferior */
+    display: block; /* Centrar horizontalmente */
+}
+
+.items h2 {
+    font-size: 16px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.items p {
+    font-size: 14px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.items button{
+    background-color: var(--color-secundario);
+    color:var(--color-terciario);
+    font-weight:bold;
+    align-items: center;
+        
+}
+.cantidad{
+    width: 10px;  
+    padding: 5px; /* Espaciado interno */  
+    font-size: 13px; /* Tamaño de fuente */ 
+    font-weight: bold; 
+    border-radius: 5px; /* Bordes redondeados */
+}  
+
+.entrada{
+    width: 32px; /* Ajusta el ancho del input */  
+    padding: 5px; /* Espaciado interno */  
+    font-size: 12px; /* Tamaño de fuente */  
+    border: 1px solid #ccc; /* Borde del input */  
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: #413c35;  
+}  
+
+#cantidad-carrito{
+    position: absolute;
+    top: 40px;
+    right: 15px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
