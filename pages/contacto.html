@@ -1,31 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Maná</title>
+
+    <!-- ícono de la página web -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="../favicon-16x16.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- configuración de estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
 </head>
 <body>
     <header>
         <nav>
-
-        </nav>
+            <a href="../inicio.html" class="logo">
+                <img src="../assets/img/logo.png" alt="Logo SuperShop Maná" loading="lazy">
+                <!-- loading="lazy" -> atraza la carga de imágenes hasta que son necesarias --> 
+                 <span>SuperShop</span>
+            </a>
+    
+            <ul>
+                <li><a href="../inicio.html">Inicio</a></li>
+                <li><a href="../pages/productos.html">Productos</a></li>
+                <li><a href="../pages/promociones.html">Promociones</a></li>
+            </ul>
+        </nav>       
     </header>
 
-    <!-- formulario de contacto -->
-    <form>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre">
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido">
-        <label for="email">Email:</label>
-        <input type="email" id="email">
-        <label for="telefono">Teléfono:</label>
-        <input type="text" id="telefono">            
-        <textarea name="consulta" id="consulta" cols="30" rows="10" placeholder="Comentarios"></textarea>
+    <hr>
+
+    <main>
+        <h1>Página en construcción...</h1>
+    
+        <!-- formulario de contacto -->
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido">
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono">            
+            <textarea name="consulta" id="consulta" cols="30" rows="10" placeholder="Comentarios"></textarea>
+            
+            <button id="enviar">Enviar</button>
+        </form>
         
-        <button id="enviar">Enviar</button>
-    </form>
+    </main>
     
     <footer>
 

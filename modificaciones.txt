@@ -1,0 +1,9 @@
+24/VII/24
+Modifiqué:
+    index.html
+    estilos.css
+        cambié la configuración, en vez de usar una clase header, uso el elemento header, ya que todas las páginas tienen lo mismo
+    contacto.html
+Agregué:
+    promociones.html
+    
