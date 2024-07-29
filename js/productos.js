@@ -1,83 +1,148 @@
-/*
-const producto = {
-    "nombre":"arroz",
-    "cantidad":35,
-    "precio":1500
+// Array de productos
+const productos = [
+    { id: 1, nombre: 'Trapo de piso', precio: 655, img: '../assets/img/trapo.jpg', stock: 15 },
+    { id: 2, nombre: 'Antigrasa Concentrado', precio: 1825, img: '../assets/img/antigrasa.jpg', stock: 4 },
+    { id: 3, nombre: 'Desodorante Poet', precio: 1965, img: '../assets/img/desodorante-poet.jpg', stock: 10 },
+    { id: 4, nombre: 'Detergente', precio: 990, img: '../assets/img/detergente.jpg', stock: 12 },
+    { id: 5, nombre: 'Esponja Multiuso', precio: 655, img: '../assets/img/esponja.jpg', stock: 40 },
+    { id: 6, nombre: 'Lavandina', precio: 1200, img: '../assets/img/lavandina.jpg', stock: 2 },
+    { id: 7, nombre: 'Limpia vidrio', precio: 2455, img: '../assets/img/limpia-vidrio.jpg', stock: 8 },
+    { id: 8, nombre: 'Esponja para vidrios', precio: 1860, img: '../assets/img/limpia-vidrio2.jpg', stock: 1 },
+    { id: 9, nombre: 'Poet Lavanda', precio: 1655, img: '../assets/img/poet.jpg', stock: 12 },
+    { id: 10, nombre: 'Virulana x 12u.', precio: 690, img: '../assets/img/virulana.jpg', stock: 9 },
+];
+//Array de compra de productos
+let pedido = [];
+
+
+///Función para crear y añadir un producto al DOM
+function agregarProducto(producto, parentElement) {
+    let productDiv = document.createElement('div');
+    productDiv.className = 'items';
+    productDiv.id = producto.id;
+
+    productDiv.innerHTML = `
+        <img src="${producto.img}" alt="${producto.nombre}">
+        <h2>${producto.nombre}</h2>
+        <div class="precio-stock">
+            <p>$${producto.precio.toFixed(2)}</p>
+            <p class="stock">Stock: ${producto.stock}</p>
+        </div>
+        <label class="cantidad" for="cantidad${producto.id}">Cantidad:</label>
+        <input class="entrada" type="number" name="cantidad${producto.id}" min="1" step="1">
+        <button class="btnAgregar">Agregar</button>
+    `;
+//añade el nuevo DOM
+    parentElement.appendChild(productDiv);
+};
+
+// Seleccionar los elementos contenedores donde se añadirán los productos
+let fila1 = document.getElementById('fila1');
+let fila2 = document.getElementById('fila2');
+
+// Añadir los productos a las filas, SLICE es un metodo que permite tomar parte del arreglo
+productos.slice(0, 5).forEach(producto => agregarProducto(producto, fila1));
+productos.slice(5).forEach(producto => agregarProducto(producto, fila2));
+
+//Calcula la cantidad de productos del carrito
+function calcularCarrito(arregloPedido) {
+    let nroTotal = 0;
+    for (let j = 0; j < arregloPedido.length; j++) {
+        nroTotal += arregloPedido[j].cantProd;
+    }
+    return nroTotal;
+};
+
+// calcula el stock actualizado creando una copia del arreglo original.
+function calcularStock(productos, pedido) {
+    let productosActualizados = [];
+    for (let i = 0; i < productos.length; i++) {
+        productosActualizados.push({ ...productos[i] });
+    }
+
+    for (let i = 0; i < pedido.length; i++) {
+        const itemPedido = pedido[i];
+        for (let j = 0; j < productosActualizados.length; j++) {
+            if (productosActualizados[j].id === itemPedido.id) {
+                productosActualizados[j].stock -= itemPedido.cantProd;
+                break;
+            }
+        }
+    }
+
+    return productosActualizados;
 }
 
-console.log("Del producto " + producto.nombre + " tengo " + producto.cantidad + " unidades que valen c/u $ " + producto.precio);
 
-// Arreglo de json
-const product = [{
-    "nombre":"arroz",
-    "cantidad":35,
-    "precio":1500
-},
-{
-    "nombre":"fideos",
-    "cantidad":40,
-    "precio":1700
-}
-]
-
-// Objeto
-const productos = [{
-    nombre:"arroz",
-    cantidad:35,
-    precio:1500
-},
-{
-    nombre:"fideos",
-    cantidad:40,
-    precio:1700
-}
-]
-
-console.log(productos)
-
-// Agregar un producto
-let yerba = {
-    nombre:"yerba",
-    cantidad:100,
-    precio:2000
-}
-
-productos.push(yerba)
-
-console.log(productos)
-
-console.log(productos[2].cantidad);
-productos[2].cantidad--
-
-console.log(productos[2].cantidad);
-
-document.querySelector("ul li").innerHTML = `El producto ${productos[0].nombre} tiene un stock de ${productos[0].cantidad}`;
-*/
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const botonesAgregar = document.querySelectorAll('button');
-    const cantidadCarrito = document.getElementById('cantidad-carrito');
-    let totalimporte=0;
+//Agrega los productos seleccionados al carrito y al arreglo pedido
+document.addEventListener('DOMContentLoaded', function () {
+    let botonesAgregar = document.querySelectorAll('button');
+    let cantidadCarrito = document.getElementById('cantidad-carrito');
     let totalItems = 0;
-    let importe=0;
-    let cantidad=0;
-    
+
     botonesAgregar.forEach(boton => {
-        boton.addEventListener('click', function() {
-            inputCantidad = this.closest('.items').querySelector('.entrada');
-            importe=this.closest('.items').querySelector('p').textContent;
-            cantidad = parseInt(inputCantidad.value);
-            
-            // aca quizas podriamos mejorarlo agregando en un array el producto con la cantidad 
-            // y si es el mismo que le modifican la cantidad buscarlo y colocarle la correcta.
-           
-            // Eliminar el signo '$' y convertir a número y saca el total
-            importe = parseFloat(importe.replace('$', ''))*cantidad;
-            totalItems += cantidad;
-            totalimporte +=importe;
-            cantidadCarrito.textContent = totalItems;
-            alert(totalimporte)
+        boton.addEventListener('click', function () {
+            let itemDiv = this.closest('.items');
+            let inputCantidad = itemDiv.querySelector('.entrada');
+            let precioElemento = itemDiv.querySelector('.precio-stock p').textContent;
+            let stockElemento = itemDiv.querySelector('.stock').textContent;
+            let precio = parseFloat(precioElemento.replace('$', ''));
+            let stock = parseInt(stockElemento.match(/\d+/)[0]);
+            let cantidad = parseInt(inputCantidad.value);
+
+            if (cantidad <= stock) {
+                //si existe acualiza la cantidad
+                let encontro = 0;
+                for (let i = 0; i < pedido.length; i++) {
+                    if (pedido[i].id === parseInt(itemDiv.id)) {
+                        pedido[i].cantProd = cantidad;
+                        encontro = 1;
+
+                    };
+
+                };
+
+                // Añadir el producto al array de pedido sino existe
+                if (encontro === 0) {
+
+                    pedido.push({
+                        id: parseInt(itemDiv.id),
+                        nombre: itemDiv.querySelector('h2').textContent,
+                        precio: precio,
+                        cantProd: cantidad
+                    });
+
+                };
+                // Actualizar el stock de productos
+                calcularStock(productos, pedido);
+
+                // Actualizar el stock en el etiqueda del DOM
+                let productosActualizados = calcularStock(productos, pedido);
+                for (let i = 0; i < productosActualizados.length; i++) {
+                    const productoElemento = document.getElementById(productosActualizados[i].id);
+                    productoElemento.querySelector('.stock').textContent = `Stock: ${productosActualizados[i].stock}`;
+                }
+
+
+                //calcula la cantidad de productos añadidos al carrito  
+                totalItems = calcularCarrito(pedido);
+
+                
+                // Actualizar la cantidad en el carrito
+                cantidadCarrito.textContent = totalItems;
+
+                // Imprimir el contenido inicial del arreglo pedido en un alert 
+                //esto es para probar, lo pone como texto
+                alert('Contenido inicial del arreglo pedido:\n' + JSON.stringify(pedido, null, 2));
+
+            } else {
+                alert('Cantidad no válida. Verifica el stock disponible.');
+            };
+
         });
+
     });
+
+
 });
+

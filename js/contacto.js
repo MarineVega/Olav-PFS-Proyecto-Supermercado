@@ -39,17 +39,17 @@ btnEnviar.addEventListener("click", (e) => {
         mostrarMensajeError("nombreError", "Por favor ingrese nombre.");        
         esValido = false;
     }
-
+    
     if (apellido.value === "") {
         mostrarMensajeError("apellidoError", "Por favor ingrese apellido.");
         esValido = false;
     }
-
+    
     if (!esValidoEmail(email.value)) {
         mostrarMensajeError("emailError", "Por favor ingrese un correo electrónico válido.");
         esValido = false;
     }
-   
+    
     if ((telefono.value.length < 10) || (telefono.value.length > 12)) {
         mostrarMensajeError("telefonoError", "El teléfono debe tener entre 10 y 12 dígitos.");
         esValido = false;
@@ -59,17 +59,20 @@ btnEnviar.addEventListener("click", (e) => {
         mostrarMensajeError("consultaError", "Por favor ingrese su consulta.");
         esValido = false;
     }
-
+    
     if (esValido) {
-        infoContacto[0] = nombre.value;
+        infoContacto[0] = nombre.value + '\n';
         infoContacto[1] = apellido.value;
         infoContacto[2] = email.value;
         infoContacto[3] = telefono.value;
         infoContacto[4] = consulta.value;
-    
+        
         let blob = new Blob([infoContacto], { type: "text/plain;charset=utf-8"});
-    
+        
         saveAs(blob, "contacto.txt");     
     }
-
+    
+    /* para agregar salto de línea
+    \n
+    */
 })
