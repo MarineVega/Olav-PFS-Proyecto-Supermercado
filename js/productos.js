@@ -29,7 +29,7 @@ function agregarProducto(producto, parentElement) {
             <p class="stock">Stock: ${producto.stock}</p>
         </div>
         <label class="cantidad" for="cantidad${producto.id}">Cantidad:</label>
-        <input class="entrada" type="number" name="cantidad${producto.id}" min="1" step="1">
+        <input class="entrada" type="number" name="cantidad${producto.id}" min="0" step="1">
         <button class="btnAgregar">Agregar</button>
     `;
 //añade el nuevo DOM
@@ -73,7 +73,6 @@ function calcularStock(productos, pedido) {
     return productosActualizados;
 }
 
-
 //Agrega los productos seleccionados al carrito y al arreglo pedido
 document.addEventListener('DOMContentLoaded', function () {
     let botonesAgregar = document.querySelectorAll('button');
@@ -90,16 +89,14 @@ document.addEventListener('DOMContentLoaded', function () {
             let stock = parseInt(stockElemento.match(/\d+/)[0]);
             let cantidad = parseInt(inputCantidad.value);
 
-            if (cantidad <= stock) {
+            if ((cantidad <= stock) && (cantidad>=0)) {
                 //si existe acualiza la cantidad
                 let encontro = 0;
                 for (let i = 0; i < pedido.length; i++) {
                     if (pedido[i].id === parseInt(itemDiv.id)) {
                         pedido[i].cantProd = cantidad;
                         encontro = 1;
-
                     };
-
                 };
 
                 // Añadir el producto al array de pedido sino existe
@@ -111,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         precio: precio,
                         cantProd: cantidad
                     });
-
                 };
                 // Actualizar el stock de productos
                 calcularStock(productos, pedido);
@@ -121,12 +117,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 for (let i = 0; i < productosActualizados.length; i++) {
                     const productoElemento = document.getElementById(productosActualizados[i].id);
                     productoElemento.querySelector('.stock').textContent = `Stock: ${productosActualizados[i].stock}`;
-                }
-
+                };
 
                 //calcula la cantidad de productos añadidos al carrito  
                 totalItems = calcularCarrito(pedido);
-
                 
                 // Actualizar la cantidad en el carrito
                 cantidadCarrito.textContent = totalItems;
@@ -138,11 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 alert('Cantidad no válida. Verifica el stock disponible.');
             };
-
         });
-
     });
-
-
 });
 

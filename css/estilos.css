@@ -171,8 +171,6 @@ footer {
     
 }
 
-
-
 /*   ->Estilos de la pagina productos */
 .mainProductos{
     display: flex;
@@ -377,6 +375,5 @@ footer {
                 gap: 30px;
             }
         }
-
     }
 }
