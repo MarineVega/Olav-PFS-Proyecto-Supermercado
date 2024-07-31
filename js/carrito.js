@@ -9,11 +9,12 @@ btnAbrirCarrito.addEventListener("click",() => {
     pedido.slice(0, 10).forEach(producto => mostrarProducto(producto, filaCarrito));
 });
 
-// modalCarrito.addEventListener("hidden", () => {    
-//     const formulario = modalCarrito.find('div');
-//     console.log(formulario);
-//     formulario[0].reset();
-// });
+modalCarrito.addEventListener("hidden", () => {    
+    const formulario = modalCarrito.find('itemsCarrito');
+
+    console.log(formulario)
+    // formulario.innerHTML = ``;
+});
 
 btnCerrarCarrito.addEventListener("click",() => {    
     modalCarrito.close();

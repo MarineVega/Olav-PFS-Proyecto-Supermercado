@@ -66,6 +66,10 @@ header {
             .imgCarrito {
                 height: 70px;
             }
+
+            .imgCarrito:hover {
+                cursor: pointer;
+            }
         }
     }
 }
@@ -226,14 +230,14 @@ footer {
         margin: 10px 0;
         text-align: center;
     }
-    
+    /*
     button {
         background-color: var(--color-secundario);
         color: var(--color-terciario);
         font-weight: bold;
         align-items: center;    
     }   
-    
+    */
     .cantidad {
         width: 10px;
         padding: 5px;
@@ -276,7 +280,6 @@ footer {
     border-radius: 20px;
     font-weight: bold;
     font-size: 0.7rem;
-    color: var(--color-principal);
     background-color: var(--color-secundario);
     color: var(--color-principal);
     width: 70px;
@@ -288,6 +291,38 @@ footer {
         color: var(--color-terciario);
     }
 }
+
+/* estilos de la página (modal) carrito de compras */
+.modalCarrito {   
+    text-align: center;    
+    .filaCarrito {
+        text-align: left;
+    }
+
+    border-style: solid;
+    border-radius: 20px;
+    border-color: var(--color-secundario);
+
+    background-color: var(--color-terciario);
+
+    #btnCerrarCarrito {
+        border-radius: 20px;            
+        font-weight: bold;
+        font-size: 0.9rem;        
+        background-color: var(--color-secundario);
+        color: var(--color-principal);
+        width: 140px;
+        height: 35px;
+        margin-bottom: 15px;
+        &:hover{
+            background-color: var(--color-cuarto);
+            color: var(--color-terciario);
+        }     
+    } 
+    
+}
+
+
 
 /* estilos de la página de contacto */
 .mainContacto {

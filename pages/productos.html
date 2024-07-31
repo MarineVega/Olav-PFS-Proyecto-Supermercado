@@ -28,14 +28,7 @@
          <ul>
             <li><a href="../index.html">Inicio</a></li>
             <li><a href="../pages/promociones.html">Promociones</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <!-- <li><a href="carrito.html" class="carrito">
-                  <div class="imgCarrito">
-                     <img src="../assets/img/carrito.png" alt="Carrito de Compras">
-                     <span id="cantidad-carrito">0</span>
-                  </div>
-                  </a>
-            </li>    -->
+            <li><a href="contacto.html">Contacto</a></li>           
 
             <li><a id="btnAbrirCarrito" class="carrito">
                <div class="imgCarrito">
@@ -43,12 +36,10 @@
                   <span id="cantidad-carrito">0</span>
                </div>
                </a>
-         </li>
-
-      </ul>
-      
-   </nav>
-</header>
+            </li>
+         </ul>      
+      </nav>
+   </header>
 
 <hr>
    <!-- <button id="btnAbrirCarrito">Abrir Carrito</button> -->
@@ -62,9 +53,9 @@
       </div>
    </main>
    
-   <dialog id="modalCarrito">
+   <dialog id="modalCarrito" class="modalCarrito">
       <h3>Carrito de Compras</h3>   
-      <div class="filaCarrito" id="filaCarrito"></div>  
+      <div id="filaCarrito" class="filaCarrito"></div>  
       <button id="btnCerrarCarrito">Cerrar Carrito</button>
    </dialog>
 
