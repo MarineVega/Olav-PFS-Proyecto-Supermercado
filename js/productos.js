@@ -13,6 +13,7 @@ const productos = [
 ];
 //Array de compra de productos
 let pedido = [];
+let importePagar = 0; 
 
 
 ///Función para crear y añadir un producto al DOM
@@ -43,6 +44,17 @@ let fila2 = document.getElementById('fila2');
 // Añadir los productos a las filas, SLICE es un metodo que permite tomar parte del arreglo
 productos.slice(0, 5).forEach(producto => agregarProducto(producto, fila1));
 productos.slice(5).forEach(producto => agregarProducto(producto, fila2));
+
+//Calcula el total a pagar sin tener en cuenta si hay descuento
+function montoTotal(arregloPedido) {
+    let importeTotal = 0;
+     
+    for (let i = 0; i < arregloPedido.length; i++) {
+        importeTotal+= arregloPedido[i].cantProd * arregloPedido[i].precio;
+    }
+   
+    return importeTotal;
+}
 
 //Calcula la cantidad de productos del carrito
 function calcularCarrito(arregloPedido) {
@@ -78,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let botonesAgregar = document.querySelectorAll('button');
     let cantidadCarrito = document.getElementById('cantidad-carrito');
     let totalItems = 0;
+    
 
     botonesAgregar.forEach(boton => {
         boton.addEventListener('click', function () {
@@ -129,10 +142,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 //esto es para probar, lo pone como texto
                 //alert('Contenido inicial del arreglo pedido:\n' + JSON.stringify(pedido, null, 2));
 
+                
             } else {
                 alert('Cantidad no válida. Verifica el stock disponible.');
             };
+
+            //importe a pagar
+            importePagar = montoTotal(pedido)
         });
     });
 });
-

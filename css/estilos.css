@@ -123,7 +123,7 @@ header {
 
         a {
             text-decoration: none;  
-            color: var(--color-principal);      
+            color: var(--color-terciario);      
         }
     }
 
@@ -132,7 +132,7 @@ header {
         color: var(--color-terciario);
         font-size: 1.7rem;
         a {
-            color: var(--color-terciario);            
+            color: var(--color-principal);            
         }
 
     }
@@ -281,42 +281,71 @@ footer {
     font-weight: bold;
     font-size: 0.7rem;
     background-color: var(--color-secundario);
-    color: var(--color-principal);
+    color: var(--color-terciario);
     width: 70px;
     height: 25px;
     margin-bottom: 15px;
 
     &:hover {
         background-color: var(--color-cuarto);
-        color: var(--color-terciario);
+        color: var(--color-principal);
     }
 }
 
 /* estilos de la página (modal) carrito de compras */
 .modalCarrito {   
     text-align: center;    
+    border-style: solid;
+    border-radius: 20px;
+    border-color: var(--color-secundario);    
+    background-color: var(--color-terciario);
+    padding: 10px 60px;
+    
+    box-shadow: 10px 8px 11px 9px var(--color-cuarto);
+
+    h3 {
+        color: var(--color-secundario);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0px;
+        font-weight: bold;
+    }
+    
+    li {
+        padding-left: 30px;
+        font-weight: normal;
+    }
+    
     .filaCarrito {
         text-align: left;
     }
 
-    border-style: solid;
-    border-radius: 20px;
-    border-color: var(--color-secundario);
+    .tachar {
+        text-decoration: line-through;
+        color: var(--color-secundario);
+        font-size: 1.2rem;
+    }
 
-    background-color: var(--color-terciario);
+    .importePagar {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
 
     #btnCerrarCarrito {
         border-radius: 20px;            
         font-weight: bold;
         font-size: 0.9rem;        
         background-color: var(--color-secundario);
-        color: var(--color-principal);
+        color: var(--color-terciario);
         width: 140px;
         height: 35px;
-        margin-bottom: 15px;
+        margin-bottom: 15px;        
         &:hover{
             background-color: var(--color-cuarto);
-            color: var(--color-terciario);
+            color: var(--color-principal);
         }     
     } 
     
@@ -350,7 +379,7 @@ footer {
                 .inputContacto {
                     padding: 5px;
                     margin-top: 10px;
-                    font-size: 1.3rem; 
+                    font-size: 1.1rem; 
                     border-radius: 10px;
                     width: 400px;
                 }
@@ -367,13 +396,13 @@ footer {
                 font-size: 1rem;
                 color: var(--color-principal);
                 background-color: var(--color-secundario);
-                color: var(--color-principal);
+                color: var(--color-terciario);
                 width: 200px;
                 height: 40px;
                 margin-bottom: 15px;
                 &:hover{
                     background-color: var(--color-cuarto);
-                    color: var(--color-terciario);
+                    color: var(--color-principal);
                 }               
             }        
         }    
@@ -455,8 +484,8 @@ footer {
     /* Asegura que el texto se alinee en línea */
     text-align-last: center;
     color: var(--color-secundario);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 40px;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-size: 2rem;
     animation: entrar 1s ease-out forwards;
     width: 100%;
    

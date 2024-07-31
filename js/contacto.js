@@ -61,7 +61,7 @@ btnEnviar.addEventListener("click", (e) => {
     }
     
     if (esValido) {
-        infoContacto[0] = nombre.value + '\n';
+        infoContacto[0] = nombre.value; /*+ '\n';*/
         infoContacto[1] = apellido.value;
         infoContacto[2] = email.value;
         infoContacto[3] = telefono.value;

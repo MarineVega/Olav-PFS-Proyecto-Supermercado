@@ -2,18 +2,17 @@ const btnAbrirCarrito = document.querySelector("#btnAbrirCarrito");
 const btnCerrarCarrito = document.querySelector("#btnCerrarCarrito");
 const modalCarrito = document.querySelector("#modalCarrito");
 
-//modalCarrito.reset();
 
 btnAbrirCarrito.addEventListener("click",() => {    
     modalCarrito.showModal();
+    filaCarrito.innerHTML = "";
     pedido.slice(0, 10).forEach(producto => mostrarProducto(producto, filaCarrito));
-});
+    
+    // Muestro el total de la compra
+    totalCarrito.innerHTML = "";
 
-modalCarrito.addEventListener("hidden", () => {    
-    const formulario = modalCarrito.find('itemsCarrito');
-
-    console.log(formulario)
-    // formulario.innerHTML = ``;
+    mostrarTotal(totalCarrito);
+    
 });
 
 btnCerrarCarrito.addEventListener("click",() => {    
@@ -27,9 +26,28 @@ function mostrarProducto(producto, parentElement) {
     carritoDiv.id = producto.id;
     
     carritoDiv.innerHTML = `
-    <p>${producto.nombre} Unitario $ ${producto.precio.toFixed(0)} Cant: ${producto.cantProd.toFixed(0)} Total $ ${producto.cantProd * producto.precio} </p>
+    <ul>${producto.nombre} 
+        <li>Unitario $ ${producto.precio.toFixed(0)} </li>
+        <li>Cantidad: ${producto.cantProd.toFixed(0)} </li>
+        <li>Total $ ${producto.cantProd * producto.precio} </li>        
+    </ul>
     `;
     //añade el nuevo DOM
     parentElement.appendChild(carritoDiv);
+};
 
+function mostrarTotal(parentElement) {
+    let carritoTotalDiv = document.createElement('div');
+
+    // Chequeo el total de la compra para aplicar el descuento del 30% si corresponde
+    if (importePagar > 10000) {
+        let importeConDescuento = importePagar * 0.7
+        
+        carritoTotalDiv.innerHTML = `<p class='tachar'> Total $ ${importePagar} </p>
+        <p class='importePagar'>Total con dto $ ${importeConDescuento} </p>`;
+    } else {
+        carritoTotalDiv.innerHTML = `<p class='importePagar'> $ ${importePagar} </p>`;
+    };
+
+    parentElement.appendChild(carritoTotalDiv);
 };
