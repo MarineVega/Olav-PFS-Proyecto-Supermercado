@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Imprimir el contenido inicial del arreglo pedido en un alert 
                 //esto es para probar, lo pone como texto
-                alert('Contenido inicial del arreglo pedido:\n' + JSON.stringify(pedido, null, 2));
+                //alert('Contenido inicial del arreglo pedido:\n' + JSON.stringify(pedido, null, 2));
 
             } else {
                 alert('Cantidad no válida. Verifica el stock disponible.');

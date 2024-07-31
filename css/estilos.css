@@ -89,12 +89,12 @@ header {
 
         .contenedorDescripcion {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
 
             .descripcion {   
                 font-size: 1.3rem;
-                width: 50%;         /* para que ocupe la mitad de su padre, para que entren los 2 divs */
+                /*width: 50%;*/         /* para que ocupe la mitad de su padre, para que entren los 2 divs */
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -250,7 +250,7 @@ footer {
         /* Ajusta el ancho del input */
         padding: 5px;
         /* Espaciado interno */
-        font-size: 12px;
+        font-size: 15px;
         /* Tamaño de fuente */
         border: 1px solid #ccc;
         /* Borde del input */
@@ -376,4 +376,103 @@ footer {
             }
         }
     }
+}
+
+
+
+
+/*Estilo de la pagina promociones*/
+.promos {
+    display: flex;
+    flex-direction: column;
+    /* Organiza los elementos en columna */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
+    height: auto;
+    /* Ajusta la altura automáticamente */
+    width: 100%;
+    /* Ajusta el ancho del contenedor */
+    overflow: hidden;
+    /* Asegura que el contenido que se desborda se oculte */
+    position: relative;
+    /* Establece un contexto para los elementos hijos */
+}
+
+.destacado {
+    border: 1px solid var(--color-secundario);
+    margin: 30px 10px 10px 10px;
+    width: 100%;
+    /* Ajusta según el tamaño deseado */
+    height: 250px;
+    /* Ajusta según el tamaño deseado */
+    background-size: cover;
+    /* Asegura que la imagen cubra el contenedor */
+    background-position: center;
+    /* Centra la imagen dentro del elemento */
+    background-image: url('../assets/img/promoPrincipal.jpg');
+    background-repeat: no-repeat;
+}
+
+.centroTxt {
+    white-space: nowrap;
+    /* Evita que el texto se rompa en líneas nuevas */
+    display: inline-block;
+    /* Asegura que el texto se alinee en línea */
+    text-align-last: center;
+    color: var(--color-secundario);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    animation: entrar 1s ease-out forwards;
+    width: 100%;
+   
+
+}
+ /* traslada el texto */
+@keyframes entrar {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(100);
+        opacity: 1;
+    }
+}
+
+
+
+.abajo {
+    display: flex;
+    justify-content:space-around;
+    width: 100%;
+    height: 100%;
+
+ }
+
+.izq, der {
+
+     border: 1px solid var(--color-secundario);
+    
+}
+
+.der {
+    width: 500px;
+    height: 200px;
+     border: 1px solid var(--color-secundario);
+    background-size:contain;
+    /* Asegura que la imagen cubra el contenedor */
+    background-position: center;
+    /* Centra la imagen dentro del elemento */
+    background-image: url('../assets/img/promo1.jpg');
+}
+
+.izq {
+    width: 500px;
+    height: 200px;
+    border: 1px solid var(--color-secundario);
+    background-size:contain;
+    /* Asegura que la imagen cubra el contenedor */
+    background-position: center;
+    /* Centra la imagen dentro del elemento */
+    background-image: url('../assets/img/promo2.jpg');
 }

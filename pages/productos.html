@@ -29,20 +29,29 @@
             <li><a href="../index.html">Inicio</a></li>
             <li><a href="../pages/promociones.html">Promociones</a></li>
             <li><a href="contacto.html">Contacto</a></li>
-            <li>
-               <a href="carrito.html" class="carrito">
+            <!-- <li><a href="carrito.html" class="carrito">
                   <div class="imgCarrito">
                      <img src="../assets/img/carrito.png" alt="Carrito de Compras">
                      <span id="cantidad-carrito">0</span>
                   </div>
+                  </a>
+            </li>    -->
+
+            <li><a id="btnAbrirCarrito" class="carrito">
+               <div class="imgCarrito">
+                  <img src="../assets/img/carrito.png" alt="Carrito de Compras">
+                  <span id="cantidad-carrito">0</span>
+               </div>
                </a>
-            </li>   
-         </ul>
+         </li>
 
-      </nav>
-   </header>
+      </ul>
+      
+   </nav>
+</header>
 
-   <hr>
+<hr>
+   <!-- <button id="btnAbrirCarrito">Abrir Carrito</button> -->
    
    <main class="mainProductos">
       <h1 class="titulo"> Productos de Limpieza</h1>
@@ -52,6 +61,12 @@
          <div class="fila" id="fila2"></div>      
       </div>
    </main>
+   
+   <dialog id="modalCarrito">
+      <h3>Carrito de Compras</h3>   
+      <div class="filaCarrito" id="filaCarrito"></div>  
+      <button id="btnCerrarCarrito">Cerrar Carrito</button>
+   </dialog>
 
    <hr>
     
@@ -101,6 +116,12 @@
    </footer>
       
    <script src="../js/productos.js"></script>
+   <script src="../js/carrito.js"></script>
+   <!-- <script>
+      $('#modalCarrito').on('show.bs.modal', function(){
+         $('#modalContent').html('');
+      });
+   </script> -->
 
 </body>
 
